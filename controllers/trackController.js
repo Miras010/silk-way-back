@@ -7,13 +7,13 @@ const {secret} = require("../config");
 class TrackController {
     async create (req, res) {
         try {
-            const {trackNumber, receivedInChinaDate, fromChinaToAlmaty, receivedInAlmatyDate, receivedByClient, weight} = req.body
+            const {trackNumber, receivedInChinaDate, fromChinaToAktobe, receivedInAktobeDate, passedTheBorder, receivedByClient, shippedFromAktobeDate, weight} = req.body
             const token = req.headers.authorization.split(' ')[1]
             if (!token) {
                 return res.status(400).json({message: 'Не авторизован'})
             }
             const {id} = jwt.verify(token, secret)
-            const track = await TrackService.create({trackNumber, receivedInChinaDate, fromChinaToAlmaty, receivedInAlmatyDate, receivedByClient, weight, createdBy: id})
+            const track = await TrackService.create({trackNumber, receivedInChinaDate, fromChinaToAktobe, receivedInAktobeDate, passedTheBorder, shippedFromAktobeDate, receivedByClient, weight, createdBy: id})
             res.status(200).json(track)
         } catch (e) {
             res.status(500).json(e)
