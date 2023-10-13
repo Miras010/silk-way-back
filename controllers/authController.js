@@ -188,22 +188,11 @@ class AuthController {
     async forgotPasswordByPhone (req, res) {
         try {
             const title = 'Cargo'
-            const email = 'cargo01kz@mail.ru'
-            const emailPassword = 'weeJzWTUNf0xMdJ3pyUA'
+            const email = 'silkway.aktobe@mail.ru'
+            const emailPassword = 'sywyenKpYMcrJAvNAew4'
+            const truePassword = 'silkway8988'
 
-            // const url = 'https://aspan-cargo.kz'
-            // const url = 'https://marry-cargo.kz'
-            // const url = 'https://aks-cargo.kz'
-            // const url = 'https://g-cargo.kz'
-            // const url = 'http://ziya-cargo.kz'
-            // const url = 'https://dar-logistics.kz'
-            const url = 'https://alan-cargo.kz'
-            // const url = 'https://dilya-cargo.kz'
-            // const url = 'https://ainar-cargo.kz'
-            // const url = 'https://zhan-cargo.kz'
-            // const url = 'https://zhappar-cargo.kz'
-            // const url = 'https://akty-cargo.kz'
-            // const url = 'https://tau-cargo.kz'
+            const url = 'https://silkway-cargo.kz'
 
             const { phoneNumber } = req.body
             const user = await User.findOne({phoneNumber})
