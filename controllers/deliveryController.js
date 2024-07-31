@@ -16,9 +16,9 @@ class DeliveryController {
                 return res.status(400).json({message: 'Не авторизован'})
             }
             const { id } = jwt.verify(token, secret)
-            const { address, apartment, floor, entrance, phoneNumber, description } = req.body
+            const { address, apartment, floor, entrance, phoneNumber, description, clientCode } = req.body
 
-            const createdRequest = await DeliveryRequest.create({ userId: id, address, apartment, floor, entrance, phoneNumber, description })
+            const createdRequest = await DeliveryRequest.create({ userId: id, address, apartment, floor, entrance, phoneNumber, description, clientCode })
             return res.status(200).json(createdRequest)
 
         } catch (e) {
