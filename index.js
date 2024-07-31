@@ -7,6 +7,7 @@ const userRouter = require('./routers/userRouter')
 const receiptRouter = require('./routers/receiptRouter')
 const fileRouter = require('./routers/fileRouter')
 const currencyRouter = require('./routers/currencyRouter')
+const deliveryRouter = require('./routers/deliveryRouter')
 const cors = require('cors');
 const https = require('https')
 const fs = require('fs')
@@ -43,6 +44,7 @@ app.use('/api/user', userRouter)
 app.use('/api/receipt', receiptRouter)
 app.use('/api/file', fileRouter)
 app.use('/api/currency', currencyRouter)
+app.use('/api/delivery', deliveryRouter)
 app.get('/', (req, res) => {
     res.end('Welcome!')
 })
@@ -51,7 +53,7 @@ app.get('/', (req, res) => {
 //     res.sendFile(path.join(__dirname + '/frontend/index.html'))
 // })
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3000
 
 moongose.set('strictQuery', true);
 
