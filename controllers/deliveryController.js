@@ -12,15 +12,15 @@ class DeliveryController {
     async createRequestByUser (req, res) {
         try {
             const token = req.headers.authorization.split(' ')[1]
-            let id = ''
-            if (!token) {
-                id = jwt.verify(token, secret)
+            let user = ''
+            if (token && token !== 'null') {
+                user = jwt.verify(token, secret)
             }
             const { address, apartment, floor, entrance, phoneNumber, description, clientCode, clientName } = req.body
 
             const data = { address, apartment, floor, entrance, phoneNumber, description, clientCode, clientName }
-            if (id) {
-                data['userId'] = id
+            if (user) {
+                data['userId'] = user.id
             }
             const createdRequest = await DeliveryRequest.create(data)
             return res.status(200).json(createdRequest)
